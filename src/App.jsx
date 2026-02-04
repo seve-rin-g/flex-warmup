@@ -33,9 +33,11 @@ export default function App() {
     Superman - 30\n
     Tricep push-ups - 45\n
     Rest - 10\n
-    Vups - 30\n
+    V-ups - 30\n
     Straddle-ups - 30\n
     Tuck-ups - 30\n
+    Rest - 10\n
+    Wide-arm push-ups - 45\n
     `
   )
   const [activities, setActivities] = useState([])
@@ -112,7 +114,7 @@ export default function App() {
     <div className="app">
       <div className="panel">
         <div className="left">
-          <h2>Tasks</h2>
+          <h2>Warmup Tasks</h2>
           <textarea
             value={text}
             onChange={e => setText(e.target.value)}
@@ -126,8 +128,6 @@ export default function App() {
             <button onClick={handleStop} disabled={!running}>
               Stop
             </button>
-            <button onClick={handleReset}>Reset</button>
-            <button onClick={handleParsePreview}>Preview</button>
           </div>
 
           <div className="preview">
