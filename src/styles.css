@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root{
+  --bg1:#0f172a;
+  --bg2:#1e293b;
+  --card:#0b1220;
+  --accent:#7c3aed;
+  --muted:#94a3b8;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:#e6eef8;
+}
+.app{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+.panel{width:100%;max-width:1100px;display:flex;gap:28px}
+.left{flex:1}
+.right{flex:1.1;display:flex;align-items:center;justify-content:center}
+
+textarea{width:100%;height:240px;border-radius:12px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);color:inherit;resize:vertical;font-size:15px}
+.controls{display:flex;gap:10px;margin-top:12px}
+button{padding:10px 14px;border-radius:10px;border:0;background:rgba(255,255,255,0.04);color:inherit;cursor:pointer}
+button.primary{background:linear-gradient(90deg,var(--accent),#4c1d95);box-shadow:0 6px 18px rgba(124,58,237,0.18);font-weight:700}
+.preview{margin-top:18px;color:var(--muted)}
+.preview ol{padding-left:18px}
+.preview li.active{color:var(--accent);font-weight:700}
+
+.card{width:100%;max-width:520px;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));box-shadow:0 8px 30px rgba(2,6,23,0.6);text-align:center}
+.activity-name{font-size:30px;font-weight:800;margin-bottom:8px}
+.countdown{font-size:48px;font-weight:800;color:var(--accent);margin-bottom:12px}
+.progress{height:12px;background:rgba(255,255,255,0.04);border-radius:8px;overflow:hidden;margin-bottom:12px}
+.bar{height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4)}
+.next{color:var(--muted)}
+.placeholder{color:var(--muted);font-size:20px}
+
+@media (max-width:900px){
+  .panel{flex-direction:column}
+  .right{order:-1}
+}
