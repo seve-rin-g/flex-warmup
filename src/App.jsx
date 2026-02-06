@@ -46,6 +46,7 @@ export default function App() {
   const [remaining, setRemaining] = useState(0)
   const endRef = useRef(null)
   const intervalRef = useRef(null)
+  const spokenRef = useRef(-1)
 
   useEffect(() => {
     setActivities(parseInput(text))
@@ -84,6 +85,28 @@ export default function App() {
     }
   }, [running, index, activities])
 
+  // Speak activity name when a new activity starts
+  useEffect(() => {
+    if (!running) return
+    if (!activities || activities.length === 0) return
+    const cur = activities[index]
+    if (!cur) return
+    if (spokenRef.current === index) return
+    try {
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel()
+        const u = new SpeechSynthesisUtterance(cur.name)
+        u.lang = 'en-UK'
+        u.rate = 1
+        u.pitch = 1
+        window.speechSynthesis.speak(u)
+      }
+    } catch (err) {
+      console.warn('TTS error', err)
+    }
+    spokenRef.current = index
+  }, [index, running, activities])
+
   function handleStart() {
     const parsed = parseInput(text)
     if (parsed.length === 0) return alert('No valid activities found.')
@@ -91,16 +114,20 @@ export default function App() {
     setIndex(0)
     setRemaining(parsed[0].duration)
     endRef.current = Date.now() + parsed[0].duration * 1000
+    // reset spoken marker so the first activity will be spoken
+    spokenRef.current = -1
     setRunning(true)
   }
   function handleStop() {
     setRunning(false)
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) window.speechSynthesis.cancel()
   }
   function handleReset() {
     setRunning(false)
     setIndex(0)
     setRemaining(activities[0]?.duration || 0)
     endRef.current = null
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) window.speechSynthesis.cancel()
   }
   function handleParsePreview() {
     setActivities(parseInput(text))
