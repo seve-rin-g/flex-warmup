@@ -96,9 +96,9 @@ export default function App() {
       if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
         window.speechSynthesis.cancel()
         const u = new SpeechSynthesisUtterance(cur.name)
-        u.lang = 'en-UK'
         u.rate = 1
         u.pitch = 1
+        u.voice = window.speechSynthesis.getVoices().find(v => v.name === 'Karen') || null // macOS Australian English on Mozilla
         window.speechSynthesis.speak(u)
       }
     } catch (err) {
