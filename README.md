@@ -2,6 +2,8 @@
 
 A small React app that parses activities and their durations from a user-editable textbox, and runs a visual countdown.
 
+(Also, a cautious test of AI/CoPilot-driven development.)
+
 Quick start
 
 ```bash
