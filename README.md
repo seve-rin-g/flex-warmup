@@ -1,6 +1,6 @@
 # Flexibility Warmup Timer
 
-!['headsit'](serchmaa-headsit.jpg)
+![serchmaa-headsit](https://github.com/user-attachments/assets/b1eaebe1-d2d3-412a-b566-6499a760f417)
 
 ## Purpose
 
