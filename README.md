@@ -4,7 +4,7 @@
 
 ## Purpose
 
-I trained with Serchmaa Byamba for several years. Mongolian contortion artists require a standard, rigorous warmup for a practice that ensures progress and longevity. I worked with Serchmaa to develop an easy-to-follow exercise program for students.
+I trained with Serchmaa Byamba for several years. Mongolian contortion artists require a standard, rigorous warmup for a practice that can maximize progress while ensuring safety and longevity. I worked with Serchmaa to develop an easy-to-follow exercise program for students.
 
 ## Implementation
 
